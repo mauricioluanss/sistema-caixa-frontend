@@ -6,6 +6,7 @@
           <th>ID</th>
           <th>Descricao</th>
           <th>Preço unitário</th>
+          <th>Ação</th>
         </tr>
       </thead>
       <tbody>
@@ -13,6 +14,9 @@
           <td>{{ produto.id }}</td>
           <td>{{ produto.descricao }}</td>
           <td>{{ formataValorUnitario(produto.valorUnitario) }}</td>
+          <td>
+            <button @click="adicionarProdutoAoCarrinho(produto)">Adicionar</button>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -23,8 +27,6 @@
 import { buscaTodosProdutos } from '@/services/produtoService'
 
 export default {
-  name: 'TodosProdutos',
-
   data() {
     return {
       produtos: [],
@@ -44,6 +46,10 @@ export default {
       }
     },
 
+    adicionarProdutoAoCarrinho(produto) {
+      this.$store.dispatch('chamaAdicionarProduto', produto)
+    },
+
     // converte o valor unitario do produto pra mostrar ele bonito na tela
     formataValorUnitario(valor) {
       const valorConvertido = parseFloat(valor)
@@ -61,7 +67,7 @@ export default {
 </script>
 <style scoped>
 .container-tabela-rolavel {
-  max-height: 100px;
+  max-height: 200px;
   overflow-y: auto;
 }
 

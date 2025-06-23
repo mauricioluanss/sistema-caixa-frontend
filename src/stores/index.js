@@ -16,6 +16,7 @@ export default createStore({
       state.carrinho = carrinhoAtualizado
     },
   },
+
   actions: {
     chamaAdicionarProduto(context, produto) {
       context.commit('ADICIONAR_PRODUTO', produto)
@@ -25,5 +26,4 @@ export default createStore({
       context.commit('REMOVER_PRODUTO', produto)
     },
   },
-  getters: {},
 })

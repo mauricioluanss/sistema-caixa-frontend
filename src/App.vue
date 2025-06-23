@@ -1,15 +1,15 @@
 <template>
   <main class="container">
-    <TodosProdutos />
+    <TelaPrincipal />
   </main>
 </template>
 <script>
-import TodosProdutos from './views/TodosProdutos.vue'
+import TelaPrincipal from './views/TelaPrincipal.vue'
 
 export default {
   name: 'App',
   components: {
-    TodosProdutos,
+    TelaPrincipal,
   },
 }
 </script>
