@@ -6,8 +6,13 @@ export default createStore({
   },
 
   mutations: {
-    ADICIONAR_PRODUTO(state, produto) {
-      state.carrinho.push(produto)
+    ADICIONAR_PRODUTO(state, produtoAAdicionar) {
+      const produtoEstaNoCarrinho = state.carrinho.find((item) => item.id === produtoAAdicionar.id)
+      if (produtoEstaNoCarrinho) {
+        produtoEstaNoCarrinho.quantidade++
+      } else {
+        state.carrinho.push({ ...produtoAAdicionar, quantidade: 1 })
+      }
     },
 
     REMOVER_PRODUTO(state, produtoARemover) {

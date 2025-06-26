@@ -13,7 +13,7 @@
         <tr v-for="produto in produtos" :key="produto.id">
           <td>{{ produto.id }}</td>
           <td>{{ produto.descricao }}</td>
-          <td>{{ formataValorUnitario(produto.valorUnitario) }}</td>
+          <td>{{ formataPreco(produto.valorUnitario) }}</td>
           <td>
             <button @click="adicionarProdutoAoCarrinho(produto)">Adicionar</button>
           </td>
@@ -25,6 +25,7 @@
 
 <script>
 import { buscaTodosProdutos } from '@/services/produtoService'
+import { formataPreco } from '@/utils/formatadores'
 
 export default {
   data() {
@@ -50,18 +51,7 @@ export default {
       this.$store.dispatch('chamaAdicionarProduto', produto)
     },
 
-    // converte o valor unitario do produto pra mostrar ele bonito na tela
-    formataValorUnitario(valor) {
-      const valorConvertido = parseFloat(valor)
-
-      if (!isNaN(valorConvertido)) {
-        return new Intl.NumberFormat('pt-BR', {
-          style: 'currency',
-          currency: 'BRL',
-        }).format(valorConvertido)
-      }
-      return 'Valor não disponível.'
-    },
+    formataPreco: formataPreco,
   },
 }
 </script>
