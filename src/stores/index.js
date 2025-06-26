@@ -31,4 +31,13 @@ export default createStore({
       context.commit('REMOVER_PRODUTO', produto)
     },
   },
+
+  getters: {
+    valorTotalCarrinho: (state) => {
+      return state.carrinho.reduce((valorTotal, produto) => {
+        const valorTotalProduto = parseFloat(produto.valorUnitario) * produto.quantidade
+        return valorTotal + valorTotalProduto
+      }, 0)
+    },
+  },
 })
