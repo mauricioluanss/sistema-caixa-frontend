@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import TodosProdutos from '@/components/ConsultaProdutos.vue'
+import TodosProdutos from '@/components/tela_principal/ConsultaProdutos.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

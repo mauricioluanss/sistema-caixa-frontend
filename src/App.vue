@@ -3,6 +3,7 @@
     <TelaPrincipal />
   </main>
 </template>
+
 <script>
 import TelaPrincipal from './views/TelaPrincipal.vue'
 

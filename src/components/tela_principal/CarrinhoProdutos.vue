@@ -46,7 +46,7 @@ export default {
 </script>
 <style scoped>
 .carrinho {
-  max-height: 600px;
+  max-height: 200px;
   overflow-y: auto;
 }
 
