@@ -1,4 +1,5 @@
 import { createStore } from 'vuex'
+import { chamaVenda } from '@/services/venda/vendaService'
 
 export default createStore({
   state: {
@@ -20,6 +21,10 @@ export default createStore({
       const carrinhoAtualizado = state.carrinho.filter(filtro)
       state.carrinho = carrinhoAtualizado
     },
+
+    LIMPA_CARRINHO(state) {
+      state.carrinho = []
+    },
   },
 
   actions: {
@@ -29,6 +34,21 @@ export default createStore({
 
     chamaRemoverProduto(context, produto) {
       context.commit('REMOVER_PRODUTO', produto)
+    },
+
+    chamaLimpaCarrinho(context) {
+      context.commit('LIMPA_CARRINHO')
+    },
+
+    async salvarVenda(context, payload) {
+      try {
+        const salvarVenda = await chamaVenda(payload)
+        context.commit('LIMPA_CARRINHO')
+        return salvarVenda
+      } catch (error) {
+        console.error('Erro na action salvarVenda', error)
+        throw error
+      }
     },
   },
 

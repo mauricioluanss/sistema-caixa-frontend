@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { buscaTodosProdutos } from '@/services/produtoService'
+import { buscaTodosProdutos } from '@/services/produto/produtoService'
 import { formataPreco } from '@/utils/formatadores'
 
 export default {
