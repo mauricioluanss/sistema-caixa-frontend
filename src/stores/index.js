@@ -22,6 +22,20 @@ export default createStore({
       state.carrinho = carrinhoAtualizado
     },
 
+    INCREMENTAR_QUANTIDADE(state, produto) {
+      const produtoNoCarrinho = state.carrinho.find((item) => item.id === produto.id)
+      if (produtoNoCarrinho) {
+        produtoNoCarrinho.quantidade++
+      }
+    },
+
+    DECREMENTAR_QUANTIDADE: (state, produto) => {
+      const produtoNoCarrinho = state.carrinho.find((item) => item.id === produto.id)
+      if (produtoNoCarrinho) {
+        produtoNoCarrinho.quantidade--
+      }
+    },
+
     LIMPA_CARRINHO(state) {
       state.carrinho = []
     },
@@ -38,6 +52,19 @@ export default createStore({
 
     chamaLimpaCarrinho(context) {
       context.commit('LIMPA_CARRINHO')
+    },
+
+    incrementarQuantidade(context, produto) {
+      context.commit('INCREMENTAR_QUANTIDADE', produto)
+    },
+
+    decrementarOuRemover(context, produto) {
+      const produtoNoCarrinho = context.state.carrinho.find((item) => item.id === produto.id)
+      if (produtoNoCarrinho.quantidade > 1) {
+        context.commit('DECREMENTAR_QUANTIDADE', produto)
+      } else {
+        context.commit('REMOVER_PRODUTO', produto)
+      }
     },
 
     async salvarVenda(context, payload) {
