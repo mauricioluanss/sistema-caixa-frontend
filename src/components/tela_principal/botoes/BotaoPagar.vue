@@ -1,21 +1,22 @@
 <template>
-  <button @click="finalizarVenda">pagar</button>
+  <button type="button" @click="onClick">pagar</button>
 </template>
 
 <script>
 export default {
-  data() {
-    return {}
-  },
-
-  computed: {
+  /*   computed: {
     carrinho() {
       return this.$store.state.carrinho
     },
-  },
+  }, */
+
+  emits: ['click'],
 
   methods: {
-    async finalizarVenda() {
+    onClick() {
+      return this.$emit('click')
+    },
+    /*     async finalizarVenda() {
       try {
         const produtosVenda = this.carrinho.map((item) => ({
           produtoId: item.id,
@@ -35,7 +36,7 @@ export default {
       } catch (error) {
         console.error(error)
       }
-    },
+    }, */
   },
 }
 </script>
