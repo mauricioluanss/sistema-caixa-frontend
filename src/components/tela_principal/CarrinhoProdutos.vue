@@ -19,15 +19,9 @@
           <td>{{ produto.quantidade }}</td>
           <td>{{ formataPreco(produto.valorUnitario * produto.quantidade) }}</td>
           <td>
-            <BotaoGenerico @click="incrementarQuantidade(produto)">
-              <IconAumentarQtd />
-            </BotaoGenerico>
-
-            <button @click="removerProdutoCarrino(produto)">Remover</button>
-
-            <BotaoGenerico @click="decrementarOuRemover(produto)">
-              <IconDiminuirQtd />
-            </BotaoGenerico>
+            <IconAumentarQtd @click="incrementarQuantidade(produto)" tabindex="0" role="button" />
+            <IconRemover @click="removerProdutoCarrino(produto)" tabindex="0" role="button" />
+            <IconDiminuirQtd @click="decrementarOuRemover(produto)" tabindex="0" role="button" />
           </td>
         </tr>
       </tbody>
@@ -37,15 +31,15 @@
 
 <script>
 import { formataPreco } from '@/utils/formatadores'
-import BotaoGenerico from './BotaoGenerico.vue'
 import IconAumentarQtd from '../icons/IconAumentarQtd.vue'
 import IconDiminuirQtd from '../icons/IconDiminuirQtd.vue'
+import IconRemover from '../icons/IconRemover.vue'
 
 export default {
   components: {
-    BotaoGenerico,
     IconAumentarQtd,
     IconDiminuirQtd,
+    IconRemover,
   },
 
   computed: {
