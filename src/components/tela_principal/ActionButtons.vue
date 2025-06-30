@@ -3,19 +3,18 @@
     <ModalPagamento v-if="mostrarModalPagamento" />
 
     <div class="col-6">
-      <BotaoLimparCarrinho />
+      <BotaoGenerico @click="limpaCarrinho">LIMPAR CARRINHO</BotaoGenerico>
     </div>
 
     <div class="col-6">
-      <BotaoPagar @click="alteraEstadoModalPagamento" />
+      <BotaoGenerico @click="alteraEstadoModalPagamento">PAGAR</BotaoGenerico>
     </div>
   </div>
 </template>
 
 <script>
-import BotaoPagar from './botoes/BotaoPagar.vue'
-import BotaoLimparCarrinho from './botoes/BotaoLimparCarrinho.vue'
 import ModalPagamento from './ModalPagamento.vue'
+import BotaoGenerico from './BotaoGenerico.vue'
 
 export default {
   data() {
@@ -25,14 +24,17 @@ export default {
   },
 
   components: {
-    BotaoPagar,
-    BotaoLimparCarrinho,
     ModalPagamento,
+    BotaoGenerico,
   },
 
   methods: {
     alteraEstadoModalPagamento() {
       this.mostrarModalPagamento = true
+    },
+
+    limpaCarrinho() {
+      return this.$store.dispatch('chamaLimpaCarrinho')
     },
   },
 }
