@@ -4,6 +4,7 @@ import { chamaVenda } from '@/services/venda/vendaService'
 export default createStore({
   state: {
     carrinho: [],
+    modalPagamento: null,
   },
 
   mutations: {
@@ -38,6 +39,14 @@ export default createStore({
 
     LIMPA_CARRINHO(state) {
       state.carrinho = []
+    },
+
+    HABILITA_MODALPAGAMENTO(state) {
+      state.modalPagamento = true
+    },
+
+    DESABILITA_MODALPAGAMENTO(state) {
+      state.modalPagamento = false
     },
   },
 
@@ -76,6 +85,14 @@ export default createStore({
         console.error('Erro na action salvarVenda', error)
         throw error
       }
+    },
+
+    habilitaModalPagamento(context) {
+      context.commit('HABILITA_MODALPAGAMENTO')
+    },
+
+    desabilitaModalPagamento(context) {
+      context.commit('DESABILITA_MODALPAGAMENTO')
     },
   },
 

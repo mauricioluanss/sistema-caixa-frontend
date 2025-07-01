@@ -35,6 +35,8 @@ export default {
 
         await this.$store.dispatch('salvarVenda', payload)
 
+        this.$store.dispatch('desabilitaModalPagamento')
+
         alert('Venda finalizada com sucesso!')
       } catch (error) {
         console.error(error)

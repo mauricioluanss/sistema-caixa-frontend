@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <ModalPagamento v-if="mostrarModalPagamento" />
+    <ModalPagamento v-if="statusModalPagamento" />
 
     <div class="col-6">
       <BotaoGenerico :disabled="carrinhoVazio" @click="limpaCarrinho"
@@ -21,12 +21,6 @@ import ModalPagamento from './ModalPagamento.vue'
 import BotaoGenerico from './BotaoGenerico.vue'
 
 export default {
-  data() {
-    return {
-      mostrarModalPagamento: false,
-    }
-  },
-
   components: {
     ModalPagamento,
     BotaoGenerico,
@@ -40,15 +34,20 @@ export default {
     carrinhoVazio() {
       return !this.carrinho || this.carrinho.length === 0
     },
+
+    statusModalPagamento() {
+      return this.$store.state.modalPagamento
+    },
   },
 
   methods: {
-    alteraEstadoModalPagamento() {
-      this.mostrarModalPagamento = true
+    limpaCarrinho() {
+      this.$store.dispatch('chamaLimpaCarrinho')
+      this.$store.dispatch('desabilitaModalPagamento')
     },
 
-    limpaCarrinho() {
-      return this.$store.dispatch('chamaLimpaCarrinho')
+    alteraEstadoModalPagamento() {
+      this.$store.dispatch('habilitaModalPagamento')
     },
   },
 }
