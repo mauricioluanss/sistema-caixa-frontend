@@ -3,11 +3,15 @@
     <ModalPagamento v-if="mostrarModalPagamento" />
 
     <div class="col-6">
-      <BotaoGenerico @click="limpaCarrinho">LIMPAR CARRINHO</BotaoGenerico>
+      <BotaoGenerico :disabled="carrinhoVazio" @click="limpaCarrinho"
+        >LIMPAR CARRINHO</BotaoGenerico
+      >
     </div>
 
     <div class="col-6">
-      <BotaoGenerico @click="alteraEstadoModalPagamento">PAGAR</BotaoGenerico>
+      <BotaoGenerico :disabled="carrinhoVazio" @click="alteraEstadoModalPagamento"
+        >PAGAR</BotaoGenerico
+      >
     </div>
   </div>
 </template>
@@ -26,6 +30,16 @@ export default {
   components: {
     ModalPagamento,
     BotaoGenerico,
+  },
+
+  computed: {
+    carrinho() {
+      return this.$store.state.carrinho
+    },
+
+    carrinhoVazio() {
+      return !this.carrinho || this.carrinho.length === 0
+    },
   },
 
   methods: {
