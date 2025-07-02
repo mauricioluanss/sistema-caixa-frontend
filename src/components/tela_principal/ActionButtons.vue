@@ -3,15 +3,11 @@
     <ModalPagamento v-if="statusModalPagamento" />
 
     <div class="col-6">
-      <BotaoGenerico :disabled="carrinhoVazio" @click="limpaCarrinho"
-        >LIMPAR CARRINHO</BotaoGenerico
-      >
+      <BotaoGenerico :disabled="carrinhoVazio" @click="limpaCarrinho">LIMPAR CARRINHO</BotaoGenerico>
     </div>
 
     <div class="col-6">
-      <BotaoGenerico :disabled="carrinhoVazio" @click="alteraEstadoModalPagamento"
-        >PAGAR</BotaoGenerico
-      >
+      <BotaoGenerico :disabled="carrinhoVazio" @click="alteraEstadoModalPagamento">PAGAR</BotaoGenerico>
     </div>
   </div>
 </template>

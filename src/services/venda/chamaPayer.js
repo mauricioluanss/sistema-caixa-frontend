@@ -1,3 +1,5 @@
+/* // TUDO ISSO AQUI TEM QUE VALIDAR NO BACKEND
+
 import axios from 'axios'
 
 const url = 'http://localhost:6060/Client/request'
@@ -24,3 +26,7 @@ export const chamaPayer = async (payload) => {
     throw error
   }
 }
+ */
+import axios from 'axios'
+
+const ur

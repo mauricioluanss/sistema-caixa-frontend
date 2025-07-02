@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const chamaVenda = async (payload) => {
+export const enviaPayload = async (payload) => {
   try {
     const response = await axios.post('http://localhost:3000/api/vendas', payload)
     return response.data

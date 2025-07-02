@@ -1,12 +1,11 @@
 <template>
-  <BotaoGenerico @click="finalizarVenda('card', 'debit')">1 - DEBITO</BotaoGenerico>
-  <BotaoGenerico @click="finalizarVenda('card', 'credit')">2 - CREDITO</BotaoGenerico>
-  <BotaoGenerico @click="finalizarVenda('pix', '')">3 - PIX</BotaoGenerico>
+  <BotaoGenerico @click="montaPayload('card', 'debit')">1 - DEBITO</BotaoGenerico>
+  <BotaoGenerico @click="montaPayload('card', 'credit')">2 - CREDITO</BotaoGenerico>
+  <BotaoGenerico @click="montaPayload('pix', '')">3 - PIX</BotaoGenerico>
 </template>
 
 <script>
 import BotaoGenerico from './BotaoGenerico.vue'
-import { chamaPayer } from '@/services/venda/chamaPayer'
 
 export default {
   components: {
@@ -20,8 +19,8 @@ export default {
   },
 
   methods: {
-    // passa o payload para meu service tratar e mandar pro backend
-    async finalizarVenda(paymentMethod, paymentType) {
+    // monta o payload e os dados da transação que serão salvos no backend
+    async montaPayload(paymentMethod, paymentType) {
       try {
         const produtosVenda = this.carrinho.map((item) => ({
           produtoId: item.id,
@@ -36,10 +35,13 @@ export default {
           produtos: produtosVenda,
         }
 
-        //await this.$store.dispatch('salvarVenda', payload)
-        //await chamaPayer(payload) //teste chamando a payer
-        //this.$store.dispatch('desabilitaModalPagamento')
-        //alert('Venda finalizada com sucesso!')
+        const response = await this.$store.dispatch('repassaPayload', payload)
+        console.log(JSON.stringify(response, null, 2))
+
+        /* await chamaPayer(payload) //teste chamando a payer
+        this.$store.dispatch('desabilitaModalPagamento')
+        alert('Venda finalizada com sucesso!') */
+
       } catch (error) {
         console.error(error)
       }

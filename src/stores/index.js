@@ -1,5 +1,5 @@
 import { createStore } from 'vuex'
-import { chamaVenda } from '@/services/venda/vendaService'
+import { enviaPayload } from '@/services/venda/vendaService'
 
 export default createStore({
   state: {
@@ -76,9 +76,9 @@ export default createStore({
       }
     },
 
-    async salvarVenda(context, payload) {
+    async repassaPayload(context, payload) {
       try {
-        const salvarVenda = await chamaVenda(payload)
+        const salvarVenda = await enviaPayload(payload)
         context.commit('LIMPA_CARRINHO')
         return salvarVenda
       } catch (error) {
