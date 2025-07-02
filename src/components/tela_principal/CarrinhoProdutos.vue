@@ -44,21 +44,21 @@ export default {
 
   computed: {
     carrinho() {
-      return this.$store.state.carrinho
+      return this.$store.state.moduloCarrinho.carrinho
     },
   },
 
   methods: {
     removerProdutoCarrino(produto) {
-      return this.$store.dispatch('chamaRemoverProduto', produto)
+      return this.$store.dispatch('moduloCarrinho/chamaRemoverProduto', produto)
     },
 
     incrementarQuantidade(produto) {
-      return this.$store.dispatch('incrementarQuantidade', produto)
+      return this.$store.dispatch('moduloCarrinho/incrementarQuantidade', produto)
     },
 
     decrementarOuRemover(produto) {
-      return this.$store.dispatch('decrementarOuRemover', produto)
+      return this.$store.dispatch('moduloCarrinho/decrementarOuRemover', produto)
     },
 
     formataPreco: formataPreco,

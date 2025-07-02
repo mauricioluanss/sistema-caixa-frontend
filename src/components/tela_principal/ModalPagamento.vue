@@ -1,7 +1,7 @@
 <template>
   <BotaoGenerico @click="montaPayload('card', 'debit')">1 - DEBITO</BotaoGenerico>
   <BotaoGenerico @click="montaPayload('card', 'credit')">2 - CREDITO</BotaoGenerico>
-  <BotaoGenerico @click="montaPayload('pix', '')">3 - PIX</BotaoGenerico>
+  <BotaoGenerico @click="montaPayload('pix', 'pix')">3 - PIX</BotaoGenerico>
 </template>
 
 <script>
@@ -14,7 +14,7 @@ export default {
 
   computed: {
     carrinho() {
-      return this.$store.state.carrinho
+      return this.$store.state.moduloCarrinho.carrinho
     },
   },
 
@@ -30,18 +30,19 @@ export default {
 
         const payload = {
           operadorId: 1,
-          metodoPagamento: paymentMethod,
+          paymentMethod: paymentMethod,
           paymentType: paymentType,
           produtos: produtosVenda,
         }
 
-        const response = await this.$store.dispatch('repassaPayload', payload)
-        console.log(JSON.stringify(response, null, 2))
+        // manda o payload para a store
+        await this.$store.dispatch('moduloCarrinho/repassaPayload', payload)
+        console.log(payload)
 
-        /* await chamaPayer(payload) //teste chamando a payer
-        this.$store.dispatch('desabilitaModalPagamento')
+        this.$store.dispatch('moduloModal/desabilitaModalPagamento')
+
+        /* await chamaPayer(payload)
         alert('Venda finalizada com sucesso!') */
-
       } catch (error) {
         console.error(error)
       }

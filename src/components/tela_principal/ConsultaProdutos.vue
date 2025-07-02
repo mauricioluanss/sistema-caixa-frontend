@@ -48,7 +48,7 @@ export default {
     },
 
     adicionarProdutoAoCarrinho(produto) {
-      this.$store.dispatch('chamaAdicionarProduto', produto)
+      this.$store.dispatch('moduloCarrinho/chamaAdicionarProduto', produto)
     },
 
     formataPreco: formataPreco,

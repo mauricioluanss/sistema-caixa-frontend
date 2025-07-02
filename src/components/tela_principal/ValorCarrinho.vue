@@ -10,7 +10,7 @@ import { formataPreco } from '@/utils/formatadores'
 export default {
   computed: {
     valorTotal() {
-      return this.$store.getters.valorTotalCarrinho
+      return this.$store.getters['moduloCarrinho/valorTotalCarrinho']
     },
   },
 

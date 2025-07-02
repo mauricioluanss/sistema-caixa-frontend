@@ -10,5 +10,5 @@
   },
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "workbench.colorTheme": "VueJS Theme"
+  "workbench.colorTheme": "Vue Theme"
 }
