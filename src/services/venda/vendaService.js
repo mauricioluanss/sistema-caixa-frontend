@@ -1,4 +1,4 @@
-/* import axios from 'axios'
+import axios from 'axios'
 
 const url = 'http://localhost:3000/api/vendas'
 
@@ -10,9 +10,9 @@ export const enviaPayload = async (data) => {
     console.error(error)
     throw error
   }
-} */
+}
 
-import axios from 'axios'
+/* import axios from 'axios'
 
 const url_meubackend = 'http://localhost:3000/api/vendas'
 const url_payer_pagamento = 'http://localhost:6060/Client/request'
@@ -68,4 +68,4 @@ export const enviaPayload = async (data) => {
     console.error('Erro no serviço de API ao chamar venda:', error.message)
     throw error
   }
-}
+} */
