@@ -1,6 +1,20 @@
 import axios from 'axios'
 
-//const url_meubackend = 'http://localhost:3000/api/vendas'
+const url = 'http://localhost:3000/api/vendas'
+
+export const enviaPayload = async (data) => {
+  try {
+    const response = await axios.post(url, data)
+    return response
+  } catch (error) {
+    console.error(error)
+    throw error
+  }
+}
+
+/* import axios from 'axios'
+
+const url_meubackend = 'http://localhost:3000/api/vendas'
 const url_payer_pagamento = 'http://localhost:6060/Client/request'
 const url_payer_resposta = 'http://localhost:6060/Client/response'
 
@@ -19,11 +33,12 @@ export const enviaPayload = async (data) => {
       paymentMethod: paymentMethod,
       paymentType: paymentType,
     }
+
     console.log(payload)
-    await axios.post(url_payer_pagamento, payload)
+    await axios.post(url_payer_pagamento, payload) // MANDA A TRANSAÇÃO
 
     let tentativas = 10
-    const timeout = 2000
+    const timeout = 3000
 
     while (tentativas > 0) {
       await new Promise((resolve) => setTimeout(resolve, timeout))
@@ -31,13 +46,20 @@ export const enviaPayload = async (data) => {
       const response = await axios.get(url_payer_resposta)
       const status = response.data?.statusTransaction
 
-      if (status === 'APROVED') {
-        console.log('pagamento aprovado paizao')
+      console.log(status)
+
+      if (status === 'APPROVED') {
+        await axios.post(url_meubackend, data)
         return { sucesso: true, dados: response.data }
       }
       if (status === 'REJECTED') {
-        console.log('pagamento nao autorizado :(')
         throw new Error('pagamento nao autorizado :(')
+      }
+      if (status === 'CANCELLED') {
+        throw new Error('pagamento cancelado')
+      }
+      if (status === 'ABORTED') {
+        throw new Error('pagamento abortada')
       }
 
       tentativas--
@@ -49,3 +71,4 @@ export const enviaPayload = async (data) => {
     throw error
   }
 }
+ */
