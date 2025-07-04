@@ -37,12 +37,8 @@ export default {
 
         // manda o payload para a store
         await this.$store.dispatch('moduloCarrinho/repassaPayload', payload)
-        /* console.log(payload) */
 
         this.$store.dispatch('moduloModal/desabilitaModalPagamento')
-
-        /* await chamaPayer(payload)
-        alert('Venda finalizada com sucesso!') */
       } catch (error) {
         console.error(error)
       }
