@@ -1,42 +1,60 @@
 <template>
-  <div class="carrinho">
-    <table class="table table-striped table-hover">
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th>Descricao</th>
-          <th>Valor unitário</th>
-          <th>quantidade</th>
-          <th>valor total</th>
-          <th>ação</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="produto in carrinho" :key="produto.id">
-          <td>{{ produto.id }}</td>
-          <td>{{ produto.descricao }}</td>
-          <td>{{ formataPreco(produto.valorUnitario) }}</td>
-          <td>{{ produto.quantidade }}</td>
-          <td>{{ formataPreco(produto.valorUnitario * produto.quantidade) }}</td>
-          <td>
-            <IconAumentarQtd @click="incrementarQuantidade(produto)" tabindex="0" role="button" />
-            <IconRemover @click="removerProdutoCarrino(produto)" tabindex="0" role="button" />
-            <IconDiminuirQtd @click="decrementarOuRemover(produto)" tabindex="0" role="button" />
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <div v-for="produto in carrinho" :key="produto.id" class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-6">
+          <small class="text-muted">{{ produto.descricao }}</small>
+        </div>
+
+        <div class="col-6 d-flex align-items-center justify-content-end">
+          <BotaoGenerico id="butao" @click="decrementarOuRemover(produto)">
+            <IconDiminuirQtd />
+          </BotaoGenerico>
+
+          <section class="rounded-3 p-1 d-flex justify-conten-center align-items-center">
+            {{ produto.quantidade }}
+          </section>
+
+          <BotaoGenerico id="butao" @click="incrementarQuantidade(produto)">
+            <IconAumentarQtd />
+          </BotaoGenerico>
+
+          <BotaoGenerico
+            id="butao"
+            style="background-color: rgb(234, 23, 23)"
+            @click="removerProdutoCarrino(produto)"
+          >
+            <IconRemover />
+          </BotaoGenerico>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <h6>{{ formataPreco(produto.valorUnitario) }}</h6>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 text-end">
+          <hr class="my-1" />
+          <strong>Subtotal: {{ formataPreco(produto.valorUnitario * produto.quantidade) }}</strong>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import { formataPreco } from '@/utils/formatadores'
+import BotaoGenerico from './BotaoGenerico.vue'
 import IconAumentarQtd from '../icons/IconAumentarQtd.vue'
 import IconDiminuirQtd from '../icons/IconDiminuirQtd.vue'
 import IconRemover from '../icons/IconRemover.vue'
 
 export default {
   components: {
+    BotaoGenerico,
     IconAumentarQtd,
     IconDiminuirQtd,
     IconRemover,
@@ -66,12 +84,28 @@ export default {
 }
 </script>
 <style scoped>
-.carrinho {
-  max-height: 200px;
-  overflow-y: auto;
+.card {
+  margin: auto;
+  width: 22em;
+  border-radius: 1em;
+  box-shadow: 0 1px 5px 0 #00000133;
 }
 
-table {
-  width: 100%;
+h6 {
+  font-weight: bold;
+  color: #16a34a;
+}
+
+#butao {
+  border-style: hidden;
+  box-shadow: 0 1px 4px 0 #00000133;
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
+
+section {
+  background-color: #d6d9d7;
+  width: auto;
+  height: 26px;
 }
 </style>

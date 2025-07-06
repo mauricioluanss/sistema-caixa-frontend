@@ -1,33 +1,25 @@
 <template>
-  <div class="container-tabela-rolavel">
-    <table class="table table-striped table-hover">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Descricao</th>
-          <th>Preço unitário</th>
-          <th>Ação</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="produto in produtos" :key="produto.id">
-          <td>{{ produto.id }}</td>
-          <td>{{ produto.descricao }}</td>
-          <td>{{ formataPreco(produto.valorUnitario) }}</td>
-          <td>
-            <button @click="adicionarProdutoAoCarrinho(produto)">Adicionar</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="container gap-3">
+    <CardProduto
+      v-for="produto in produtos"
+      :key="produto.id"
+      :produto="produto"
+      @adicionar_produto="adicionarProdutoAoCarrinho(produto)"
+    >
+    </CardProduto>
   </div>
 </template>
 
 <script>
 import { buscaTodosProdutos } from '@/services/produto/produtoService'
 import { formataPreco } from '@/utils/formatadores'
+import CardProduto from './CardProduto.vue'
 
 export default {
+  components: {
+    CardProduto,
+  },
+
   data() {
     return {
       produtos: [],
@@ -56,12 +48,15 @@ export default {
 }
 </script>
 <style scoped>
-.container-tabela-rolavel {
-  max-height: 200px;
-  overflow-y: auto;
-}
-
-table {
+.container {
   width: 100%;
+  max-height: 500px;
+  overflow-y: auto;
+  background-color: rgb(9, 94, 94);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-radius: 1em;
 }
 </style>

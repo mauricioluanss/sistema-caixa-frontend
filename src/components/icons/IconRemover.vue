@@ -26,3 +26,9 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+svg {
+  color: white;
+}
+</style>
