@@ -18,8 +18,6 @@ export default {
 
 <style scoped>
 button {
-  width: auto;
-  height: auto;
   border-radius: 0.4em;
   border-width: 1px;
 }

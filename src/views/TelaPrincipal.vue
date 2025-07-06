@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div class="row caixa">
     <div class="col-8">
       <ConsultaProdutos />
     </div>
@@ -22,8 +22,8 @@ export default {
 </script>
 
 <style scoped>
-#area-carrinho {
-  height: 500px;
-  overflow-y: auto;
+.caixa {
+  display: flex;
+  flex-direction: row;
 }
 </style>
