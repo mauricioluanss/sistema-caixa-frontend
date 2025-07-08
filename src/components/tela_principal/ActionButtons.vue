@@ -1,5 +1,5 @@
 <template>
-  <div class="row align-items-center">
+  <div class="row d-flex justify-content-center align-items-center">
     <ModalPagamento v-if="statusModalPagamento" />
 
     <div class="row">
@@ -14,19 +14,19 @@
           Pagar
         </BotaoGenerico>
       </div>
+    </div>
 
-      <div class="row">
-        <div class="col-12">
-          <BotaoGenerico
-            id="limpar-carrinho"
-            class="butao"
-            :disabled="carrinhoVazio"
-            @click="limpaCarrinho"
-          >
-            <IconCancelar />
-            Limpar carrinho
-          </BotaoGenerico>
-        </div>
+    <div class="row">
+      <div class="col-12">
+        <BotaoGenerico
+          id="limpar-carrinho"
+          class="butao"
+          :disabled="carrinhoVazio"
+          @click="limpaCarrinho"
+        >
+          <IconCancelar />
+          Limpar carrinho
+        </BotaoGenerico>
       </div>
     </div>
   </div>
@@ -75,7 +75,7 @@ export default {
 
 <style scoped>
 .butao {
-  width: 300px;
+  width: 100%;
   height: 45px;
   margin-top: 0.2rem;
   margin-bottom: 0.2rem;
@@ -91,11 +91,20 @@ export default {
   background-color: #218838;
 }
 
+#pagar:disabled {
+  background-color: #6c757d;
+  color: #c5c5c5;
+}
+
 #limpar-carrinho {
   background-color: #ffffff;
   color: black;
 }
 #limpar-carrinho:hover {
   background-color: #f8f9fa;
+}
+#limpar-carrinho:disabled {
+  background-color: #6c757d;
+  color: #c5c5c5;
 }
 </style>

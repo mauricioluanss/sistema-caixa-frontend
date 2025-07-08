@@ -31,7 +31,7 @@ export default {
 
 <style scoped>
 .valor-total {
-  width: 300px;
+  width: 100%;
   margin-top: 10px;
   margin-bottom: 10px;
 }

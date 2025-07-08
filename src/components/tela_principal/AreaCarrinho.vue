@@ -1,23 +1,24 @@
 <template>
-  <div class="row">
-    <div class="area-carrinho">
-      <div class="row">
-        <div class="col-12">Carrinho - (x) itens</div>
+  <div class="row area-carrinho">
+    <div class="row">
+      <div class="col-12 titulo">
+        Carrinho - (x) itens<!-- entre parenteses vou colocar a contagem de itens -->
       </div>
-      <div class="row">
-        <div class="col-12 carrinho-produtos">
-          <CarrinhoProdutos />
-        </div>
+    </div>
+    <div class="row">
+      <div class="col-12 carrinho-produtos">
+        aqui vou colocar os produtos do carrinho
+        <CarrinhoProdutos />
       </div>
-      <div class="row">
-        <div class="col-12 valor-carrinho">
-          <ValorCarrinho />
-        </div>
+    </div>
+    <div class="row">
+      <div class="col-12 valor-carrinho">
+        <ValorCarrinho />
       </div>
-      <div class="row">
-        <div class="col-12 botoes">
-          <ActionButtons />
-        </div>
+    </div>
+    <div class="row">
+      <div class="col-12 botoes">
+        <ActionButtons />
       </div>
     </div>
   </div>
@@ -39,20 +40,29 @@ export default {
 
 <style scoped>
 .area-carrinho {
-  background-color: rgb(153, 255, 0);
   height: 550px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+  background-color: rgb(102, 99, 99);
+  /* overflow-y: auto; */
 }
 
+.titulo {
+  background-color: rgb(9, 94, 94);
+  color: white;
+  text-align: center;
+  font-size: 1.5em;
+}
 .carrinho-produtos {
   background-color: cadetblue;
-  height: 350px;
+  min-height: 100px;
+  max-height: 300px;
   overflow-y: auto;
 }
 
 .valor-carrinho {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
   background-color: rgb(23, 208, 208);
 }
 

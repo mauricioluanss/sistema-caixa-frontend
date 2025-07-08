@@ -50,7 +50,7 @@ export default {
 <style scoped>
 .container {
   width: 100%;
-  max-height: 550px;
+  height: 550px;
   overflow-y: auto;
   background-color: rgb(9, 94, 94);
   display: flex;
