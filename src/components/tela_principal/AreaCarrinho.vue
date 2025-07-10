@@ -1,18 +1,22 @@
 <template>
-  <div class="row area-carrinho">
+  <div
+    class="row area-carrinho d-flex flex-column justify-content-between align-items-center w-100"
+  >
     <div class="row">
       <div class="col-12 titulo">
-        Carrinho - (x) itens<!-- entre parenteses vou colocar a contagem de itens -->
+        <QtdItensCarrinho />
       </div>
     </div>
     <div class="row">
-      <div class="col-12 carrinho-produtos">
-        aqui vou colocar os produtos do carrinho
+      <div class="col-12 carrinho-produtos d-flex flex-column justify-content-start p-1 gap-1">
         <CarrinhoProdutos />
       </div>
     </div>
     <div class="row">
-      <div class="col-12 valor-carrinho">
+      <div
+        class="col-12 valor-carrinho d-flex justify-content-center align-items-center h-100"
+        style="background-color: rgb(23, 208, 208)"
+      >
         <ValorCarrinho />
       </div>
     </div>
@@ -28,12 +32,14 @@
 import CarrinhoProdutos from '@/components/tela_principal/CarrinhoProdutos.vue'
 import ValorCarrinho from '@/components/tela_principal/ValorCarrinho.vue'
 import ActionButtons from '@/components/tela_principal/ActionButtons.vue'
+import QtdItensCarrinho from '@/components/tela_principal/QtdItensCarrinho.vue'
 
 export default {
   components: {
     CarrinhoProdutos,
     ValorCarrinho,
     ActionButtons,
+    QtdItensCarrinho,
   },
 }
 </script>
@@ -41,8 +47,7 @@ export default {
 <style scoped>
 .area-carrinho {
   height: 550px;
-  background-color: rgb(102, 99, 99);
-  /* overflow-y: auto; */
+  background-color: rgb(0, 0, 0);
 }
 
 .titulo {
@@ -53,17 +58,9 @@ export default {
 }
 .carrinho-produtos {
   background-color: cadetblue;
-  min-height: 100px;
+  min-height: 300px;
   max-height: 300px;
-  overflow-y: auto;
-}
-
-.valor-carrinho {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  background-color: rgb(23, 208, 208);
+  overflow-y: scroll; /* usei scroll para a barra de rolagem sempre ficar visivel e não deslocar os elementos */
 }
 
 .botoes {

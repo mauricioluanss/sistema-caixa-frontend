@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-light p-3 rounded-3 valor-total">
+  <div class="valor-total bg-light p-3 m-1" style="width: 95%; border-radius: 8px">
     <div class="row align-items-center">
       <div class="col-6 text-start">
         <h5>Total:</h5>
@@ -7,7 +7,7 @@
 
       <div class="col-6 text-end">
         <h3 class="text-success">
-          {{ formataPreco(valorTotal) }}
+          <span class="fw-bold">{{ formataPreco(valorTotal) }}</span>
         </h3>
       </div>
     </div>
@@ -28,11 +28,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-.valor-total {
-  width: 100%;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-</style>

@@ -81,6 +81,7 @@ export default {
   margin-bottom: 0.2rem;
   font-weight: bold;
   border: none;
+  border-radius: 8px;
 }
 
 #pagar {

@@ -1,6 +1,6 @@
 <template>
-  <div v-for="produto in carrinho" :key="produto.id" class="card">
-    <div class="card-body">
+  <div v-for="produto in carrinho" :key="produto.id" class="card mx-auto">
+    <div class="card-body py-2">
       <div class="row">
         <div class="col-6">
           <small class="text-muted">{{ produto.descricao }}</small>
@@ -11,7 +11,10 @@
             <IconDiminuirQtd />
           </BotaoGenerico>
 
-          <section class="rounded-3 p-1 d-flex justify-conten-center align-items-center">
+          <section
+            class="rounded-3 p-1 d-flex justify-conten-center align-items-center"
+            style="background-color: #d6d9d7; width: auto; height: 26px"
+          >
             {{ produto.quantidade }}
           </section>
 
@@ -31,7 +34,7 @@
 
       <div class="row">
         <div class="col-12">
-          <h6>{{ formataPreco(produto.valorUnitario) }}</h6>
+          <h6 class="fw-bold" style="color: #16a34a">{{ formataPreco(produto.valorUnitario) }}</h6>
         </div>
       </div>
 
@@ -83,17 +86,12 @@ export default {
   },
 }
 </script>
+
 <style scoped>
 .card {
-  margin: auto;
-  width: 300px;
-  border-radius: 1em;
+  width: 95%;
+  border-radius: 8px;
   box-shadow: 0 1px 5px 0 #00000133;
-}
-
-h6 {
-  font-weight: bold;
-  color: #16a34a;
 }
 
 #butao {
@@ -101,11 +99,5 @@ h6 {
   box-shadow: 0 1px 4px 0 #00000133;
   margin-left: 0.25rem;
   margin-right: 0.25rem;
-}
-
-section {
-  background-color: #d6d9d7;
-  width: auto;
-  height: 26px;
 }
 </style>
