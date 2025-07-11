@@ -4,15 +4,18 @@
       <div class="row">
         <div class="col-6">
           <small class="text-muted">{{ produto.descricao }}</small>
+          <h6 class="fw-bold" style="color: #16a34a">{{ formataPreco(produto.valorUnitario) }}</h6>
         </div>
 
-        <div class="col-6 d-flex align-items-center justify-content-end">
+        <div class="col-6 d-flex align-items-center justify-content-end py-2">
           <BotaoGenerico id="butao" @click="decrementarOuRemover(produto)">
             <IconDiminuirQtd />
           </BotaoGenerico>
 
-          <section class="rounded-3 p-1 d-flex justify-conten-center align-items-center"
-            style="background-color: #d6d9d7; width: auto; height: 26px">
+          <section
+            class="rounded-3 p-1 d-flex justify-conten-center align-items-center"
+            style="background-color: #d6d9d7; width: auto; height: 26px"
+          >
             {{ produto.quantidade }}
           </section>
 
@@ -20,15 +23,13 @@
             <IconAumentarQtd />
           </BotaoGenerico>
 
-          <BotaoGenerico id="butao" style="background-color: rgb(234, 23, 23)" @click="removerProdutoCarrino(produto)">
+          <BotaoGenerico
+            id="butao"
+            style="background-color: rgb(234, 23, 23)"
+            @click="removerProdutoCarrino(produto)"
+          >
             <IconRemover />
           </BotaoGenerico>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-12">
-          <h6 class="fw-bold" style="color: #16a34a">{{ formataPreco(produto.valorUnitario) }}</h6>
         </div>
       </div>
 
@@ -85,7 +86,9 @@ export default {
 .card {
   width: 95%;
   border-radius: 8px;
-  box-shadow: 0 1px 5px 0 #00000133;
+  box-shadow: 0 0.5px 0.5px 0 #00000133;
+  border-width: 0.1px;
+  border-style: solid;
   background-color: white;
 }
 

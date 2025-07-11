@@ -1,9 +1,9 @@
 <template>
   <div class="row caixa">
-    <div class="col-8">
+    <div class="col-8 p-0">
       <ConsultaProdutos />
     </div>
-    <div class="col-4" id="area-carrinho">
+    <div class="col-4 p-0 m-0" id="area-carrinho" style="width: 440px">
       <AreaCarrinho />
     </div>
   </div>

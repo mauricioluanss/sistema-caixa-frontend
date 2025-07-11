@@ -98,7 +98,10 @@ export default {
 }
 
 #limpar-carrinho {
-  background-color: #ffffff;
+  border-style: solid;
+  border-width: 0.5px;
+  background-color: #f0ebeb;
+  border-color: #d0d2d3;
   color: black;
 }
 #limpar-carrinho:hover {

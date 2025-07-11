@@ -9,11 +9,11 @@
 
       <div class="row align-items-center">
         <div class="col-8 text-left">
-          <h3 class="card-text">{{ formataPreco(valorUnitario) }}</h3>
+          <h3 class="card-text fw-bold text-success">{{ formataPreco(valorUnitario) }}</h3>
         </div>
 
         <div class="col-4 text-end">
-          <small class="text-muted">Qtd: {{ qtdEstoque }}</small>
+          <small class="text-muted" style="font-size: 12px">Qtd: {{ qtdEstoque }}</small>
         </div>
       </div>
 
@@ -62,11 +62,6 @@ export default {
 </script>
 
 <style scoped>
-h3 {
-  font-weight: bold;
-  color: #16a34a;
-}
-
 button {
   background-color: #2563eb;
 }
@@ -81,9 +76,5 @@ button:hover {
 
 .card:hover {
   box-shadow: 0 1px 4px 0 #00000133;
-}
-
-small {
-  font-size: 12px;
 }
 </style>

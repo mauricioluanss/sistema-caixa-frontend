@@ -1,12 +1,14 @@
 <template>
-  <div class="row area-carrinho d-flex flex-column justify-content-between align-items-center w-100">
+  <div
+    class="row area-carrinho d-flex flex-column align-items-center w-100 m-0 p-0 gap-3 rounded-3"
+  >
     <div class="row">
-      <div class="col-12 titulo d-flex" style="padding: 0px;">
+      <div class="col-12 titulo d-flex px-2 pt-4">
         <QtdItensCarrinho />
       </div>
     </div>
     <div class="row">
-      <div class="col-12 carrinho-produtos d-flex flex-column justify-content-start p-1 gap-1">
+      <div class="col-12 carrinho-produtos d-flex flex-column justify-content-start p-1 gap-2">
         <CarrinhoProdutos />
       </div>
     </div>
@@ -41,9 +43,9 @@ export default {
 
 <style scoped>
 .area-carrinho {
-  height: 550px;
+  height: 650px;
   background-color: rgb(255, 255, 255);
-  border-color: rgb(184, 182, 182);
+  border-color: rgb(218, 218, 218);
   border-style: solid;
   border-width: 0.5px;
   border-radius: 5px;
@@ -54,7 +56,6 @@ export default {
   color: white;
   text-align: center;
   font-size: 1.5em;
-  margin-top: 5px;
   margin-bottom: 5px;
 }
 
