@@ -11,10 +11,8 @@
             <IconDiminuirQtd />
           </BotaoGenerico>
 
-          <section
-            class="rounded-3 p-1 d-flex justify-conten-center align-items-center"
-            style="background-color: #d6d9d7; width: auto; height: 26px"
-          >
+          <section class="rounded-3 p-1 d-flex justify-conten-center align-items-center"
+            style="background-color: #d6d9d7; width: auto; height: 26px">
             {{ produto.quantidade }}
           </section>
 
@@ -22,11 +20,7 @@
             <IconAumentarQtd />
           </BotaoGenerico>
 
-          <BotaoGenerico
-            id="butao"
-            style="background-color: rgb(234, 23, 23)"
-            @click="removerProdutoCarrino(produto)"
-          >
+          <BotaoGenerico id="butao" style="background-color: rgb(234, 23, 23)" @click="removerProdutoCarrino(produto)">
             <IconRemover />
           </BotaoGenerico>
         </div>
@@ -92,6 +86,7 @@ export default {
   width: 95%;
   border-radius: 8px;
   box-shadow: 0 1px 5px 0 #00000133;
+  background-color: white;
 }
 
 #butao {

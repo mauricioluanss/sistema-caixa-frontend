@@ -1,9 +1,7 @@
 <template>
-  <div
-    class="row area-carrinho d-flex flex-column justify-content-between align-items-center w-100"
-  >
+  <div class="row area-carrinho d-flex flex-column justify-content-between align-items-center w-100">
     <div class="row">
-      <div class="col-12 titulo">
+      <div class="col-12 titulo d-flex" style="padding: 0px;">
         <QtdItensCarrinho />
       </div>
     </div>
@@ -13,10 +11,7 @@
       </div>
     </div>
     <div class="row">
-      <div
-        class="col-12 valor-carrinho d-flex justify-content-center align-items-center h-100"
-        style="background-color: rgb(23, 208, 208)"
-      >
+      <div class="col-12 valor-carrinho d-flex justify-content-center align-items-center h-100">
         <ValorCarrinho />
       </div>
     </div>
@@ -47,23 +42,26 @@ export default {
 <style scoped>
 .area-carrinho {
   height: 550px;
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(184, 182, 182);
+  border-style: solid;
+  border-width: 0.5px;
+  border-radius: 5px;
 }
 
 .titulo {
-  background-color: rgb(9, 94, 94);
+  background-color: rgb(255, 255, 255);
   color: white;
   text-align: center;
   font-size: 1.5em;
-}
-.carrinho-produtos {
-  background-color: cadetblue;
-  min-height: 300px;
-  max-height: 300px;
-  overflow-y: scroll; /* usei scroll para a barra de rolagem sempre ficar visivel e não deslocar os elementos */
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
-.botoes {
-  background-color: bisque;
+.carrinho-produtos {
+  min-height: 300px;
+  max-height: 300px;
+  overflow-y: scroll;
+  /* usei scroll para a barra de rolagem sempre ficar visivel e não deslocar os elementos */
 }
 </style>

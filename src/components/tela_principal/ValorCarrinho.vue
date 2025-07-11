@@ -1,5 +1,5 @@
 <template>
-  <div class="valor-total bg-light p-3 m-1" style="width: 95%; border-radius: 8px">
+  <div class="valor-total p-3 m-1">
     <div class="row align-items-center">
       <div class="col-6 text-start">
         <h5>Total:</h5>
@@ -28,3 +28,14 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.valor-total {
+  background-color: #F3F4F6;
+  width: 95%;
+  border-style: solid;
+  border-width: 0.5px;
+  border-radius: 8px;
+  border-color: #dbdbdb;
+}
+</style>
