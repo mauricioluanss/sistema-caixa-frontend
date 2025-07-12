@@ -1,10 +1,8 @@
 <template>
   <div class="row">
-    <div class="col-12">
-      <div class="qtd-itens-carrinho d-flex justify-content-left align-items-center p-3 px-3">
-        <i class="bi bi-cart me-2"></i>
-        <span class="fw-bold">Carrinho ({{ qtdItens }} itens)</span>
-      </div>
+    <div class="qtd-itens-carrinho col-12 d-flex justify-content-left align-items-center p-3 px-3">
+      <i class="bi bi-cart me-2" />
+      <span class="fw-bold">Carrinho ({{ qtdItens }} itens)</span>
     </div>
   </div>
 </template>
@@ -24,7 +22,7 @@ export default {
   width: 380px;
   background-color: #f0fdf4;
   color: #166534;
-  font-size: 0.9em;
+  font-size: 1.4em;
   border-color: #c4e9cf;
   border-width: 0.5px;
   border-radius: 5px;

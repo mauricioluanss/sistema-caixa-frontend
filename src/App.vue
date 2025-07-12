@@ -1,5 +1,5 @@
 <template>
-  <main class="container">
+  <main class="w-100 h-100">
     <TelaPrincipal />
   </main>
 </template>

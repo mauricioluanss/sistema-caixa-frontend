@@ -1,26 +1,23 @@
 <template>
+  <!-- container principal -->
   <div
-    class="row area-carrinho d-flex flex-column align-items-center w-100 m-0 p-0 gap-3 rounded-3"
-  >
-    <div class="row">
-      <div class="col-12 titulo d-flex px-2 pt-4">
-        <QtdItensCarrinho />
-      </div>
+    class="area-carrinho-interna d-flex flex-column justify-content-between align-items-center m-0 py-3 bg-light gap-2">
+
+
+    <div class="titulo d-flex flex-column justify-content-center align-items-center w-100 ">
+      <QtdItensCarrinho />
     </div>
-    <div class="row">
-      <div class="col-12 carrinho-produtos d-flex flex-column justify-content-start p-1 gap-2">
-        <CarrinhoProdutos />
-      </div>
+
+    <div class="carrinho-produtos d-flex flex-column justify-content-start align-items-center p-1 gap-2">
+      <CarrinhoProdutos />
     </div>
-    <div class="row">
-      <div class="col-12 valor-carrinho d-flex justify-content-center align-items-center h-100">
-        <ValorCarrinho />
-      </div>
+
+    <div class="total-carrinho d-flex justify-content-center align-items-center w-100">
+      <ValorCarrinho />
     </div>
-    <div class="row">
-      <div class="col-12 botoes">
-        <ActionButtons />
-      </div>
+
+    <div class="botoes w-100">
+      <ActionButtons />
     </div>
   </div>
 </template>
@@ -42,26 +39,19 @@ export default {
 </script>
 
 <style scoped>
-.area-carrinho {
-  height: 650px;
-  background-color: rgb(255, 255, 255);
-  border-color: rgb(218, 218, 218);
-  border-style: solid;
+.area-carrinho-interna {
+  width: 95%;
+  height: 100%;
   border-width: 0.5px;
-  border-radius: 5px;
-}
-
-.titulo {
-  background-color: rgb(255, 255, 255);
-  color: white;
-  text-align: center;
-  font-size: 1.5em;
-  margin-bottom: 5px;
+  border-color: #f7f7f7;
+  border-radius: 20px;
+  border-style: solid;
+  box-shadow: 0 1px 2px 0 #d3d3d3;
 }
 
 .carrinho-produtos {
-  min-height: 300px;
-  max-height: 300px;
+  width: 90%;
+  height: 400px;
   overflow-y: scroll;
   /* usei scroll para a barra de rolagem sempre ficar visivel e não deslocar os elementos */
 }

@@ -65,12 +65,14 @@ export default {
 button {
   background-color: #2563eb;
 }
+
 button:hover {
   background-color: #3873ff;
 }
+
 .card {
   width: 15em;
-  border-radius: 1em;
+  border-radius: 0.5em;
   border-color: rgba(201, 199, 199, 0.659);
 }
 

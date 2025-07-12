@@ -1,12 +1,18 @@
 <template>
-  <div class="container gap-3">
-    <CardProduto
-      v-for="produto in produtos"
-      :key="produto.id"
-      :produto="produto"
-      @adicionar_produto="adicionarProdutoAoCarrinho(produto)"
-    >
-    </CardProduto>
+  <div
+    class="consulta-produtos row d-flex flex-row justify-content-center align-items-start m-0 py-3 w-100 h-100 bg-light">
+
+    <div class="produtos-disponiveis col-12 d-flex justify-content-left align-items-center p-3 px-3 bg-light">
+      <i class="bi bi-box-seam me-2"></i>
+      <span class="fw-bold">Produtos disponíveis</span>
+    </div>
+
+    <div class="container-produtos m-0 p-0">
+      <div class="produtos col-12 p-1 gap-3 d-flex flex-wrap justify-content-center align-items-center bg-light">
+        <CardProduto v-for="produto in produtos" :key="produto.id" :produto="produto"
+          @adicionar_produto="adicionarProdutoAoCarrinho(produto)" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -48,15 +54,20 @@ export default {
 }
 </script>
 <style scoped>
-.container {
-  width: 100%;
-  height: 550px;
-  overflow-y: auto;
-  background-color: rgb(9, 94, 94);
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  border-radius: 1em;
+.produtos-disponiveis {
+  width: 90%;
+  color: #1E40AF;
+  font-size: 1.4em;
+  background-color: #EFF6FF;
+  border-color: #EFF6FF;
+  border-width: 0.5px;
+  border-radius: 5px;
+  border-style: solid;
+}
+
+.container-produtos {
+  width: 95%;
+  height: 600px;
+  overflow-y: scroll;
 }
 </style>
